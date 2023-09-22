@@ -17,6 +17,11 @@
 
 # Checkout.com Engineering Assessment
 
+Building world class, high performance, payments infrastructure requires a passionate, thriving and talented engineering community this is where your journey begins.
+
+We are passionate about giving candidates the opportunity to showcase varied, job relevant skills, across our assessment process - including our coding/technical assessment. To help you prepare for this, we have created this repository to provide you with some guidance on what to expect and how to prepare for the assessment.
+
+- [What languages we support](#what-languages-we-support)
 - [Assessment Overview](#assessment-overview)
   - [Building a payment gateway](#building-a-payment-gateway)
   - [Requirements](#requirements)
@@ -31,9 +36,7 @@
     - [Implementation detail](#implementation-detail)
 - [Get help](#get-help)
 
-Building world class, high performance, payments infrastructure requires a passionate, thriving and talented engineering community this is where your journey begins.
-
-We are passionate about giving candidates the opportunity to showcase varied, job relevant skills, across our assessment process - including our coding/technical assessment. To help you prepare for this, we have created this repository to provide you with some guidance on what to expect and how to prepare for the assessment.
+## What languages we support
 
 A variety of languages are supported for the assessment, please select the language you are most comfortable with from the list below and follow the instructions to complete the assessment.
 
@@ -45,6 +48,8 @@ A variety of languages are supported for the assessment, please select the langu
 If you would like to use a different language, please contact the recruiter who is responsible for managing your individual process.
 
 Best of luck with any current or future assessment you undertake with Checkout.com.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Assessment Overview
 During this session we'll work using the pair programming technique with you as the driver and we will be the observer or navigator. The expectation is not to finish the task, but use the time to work through solving the problem.
