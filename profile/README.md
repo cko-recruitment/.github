@@ -2,7 +2,7 @@
 
 <br />
 <div align="center">
-  <img src="../images/checkout_logo.gif" alt="Logo" width="500" height="300">
+  <img src="https://github.com/cko-recruitment/.github/blob/main/images/checkout_logo.gif" alt="Logo" width="500" height="300">
 
   <p align="center">
     <br />
@@ -74,7 +74,7 @@ Processing a card payment online involves multiple steps and entities:
 <div align="center">
   <br>
   <br>
-  <img src="../images/card_payment_overview.png" alt="Card payment overview">
+  <img src="https://github.com/cko-recruitment/.github/blob/main/images/card_payment_overview.png" alt="Card payment overview">
   <br>
   <br>
 </div>
