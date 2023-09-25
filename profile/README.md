@@ -17,7 +17,7 @@
 
 # Checkout.com Engineering Assessment
 
-Building world class, high performance, payments infrastructure requires a passionate, thriving and talented engineering community this is where your journey begins.
+Building world class, high performance, payments infrastructure requires a passionate, thriving and talented engineering community, this is where your journey begins.
 
 We are passionate about giving candidates the opportunity to showcase varied, job relevant skills, across our assessment process - including our coding/technical assessment. To help you prepare for this, we have created this repository to provide you with some guidance on what to expect and how to prepare for the assessment.
 
