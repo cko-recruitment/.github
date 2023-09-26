@@ -201,7 +201,7 @@ The JSON snippet below shows an example of the body that is expected to be submi
   "expiry_date": "04/2025",
   "currency": "GBP",
   "amount": 100,
-  "cvv": 123
+  "cvv": "123"
 }
 ```
 A response will be provided with the following structure:
