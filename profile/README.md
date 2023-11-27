@@ -99,7 +99,7 @@ The product requirements for this initial phase are the following:
 - A merchant should be able to process a payment through the payment gateway and receive one of the following types of response:
     - Authorized - the payment was authorized by the call to the acquiring bank
     - Declined - the payment was declined by the call to the acquiring bank
-    - Rejected - invalid information was supplied to the payment gateway and therefore it has rejected the request
+    - Rejected - No payment could be created as invalid information was supplied to the payment gateway and therefore it has rejected the request without calling the acquiring bank
 -  A merchant should be able to retrieve the details of a previously made payment
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -124,7 +124,7 @@ The payment gateway will need to provide merchants with a way to process a card 
 |              | Must be 3-4 characters long          |                                                                                                                                                                                     |
 |              | Must only contain numeric characters |                                                                                                                                                                                     |
 
-Responses must include the following fields:
+Responses for payments that were sent to the acquiring bank must include the following fields:
 
 | Field                 | Notes                                                                                                                                                                               |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
