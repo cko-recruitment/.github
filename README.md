@@ -46,10 +46,7 @@ A variety of languages are supported for the assessment, please select the langu
 
 *The above link intentionally links to the `beta` branch. Do not use the main branch*
 
-
-*More language support are coming soon for the `beta` branch*
-
-
+*Support for more languages are coming soon for the `beta` branch*
 
 If you would like to use a different language, please contact the recruiter who is responsible for managing your individual process.
 
