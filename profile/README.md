@@ -2,7 +2,7 @@
 
 <br />
 <div align="center">
-  <img src="../images/checkout_logo.gif" alt="Logo" width="500" height="300">
+  <img src="https://github.com/cko-recruitment/.github/blob/main/images/checkout_logo.gif" alt="Logo" width="500" height="300">
 
   <p align="center">
     <br />
@@ -23,6 +23,8 @@ We are passionate about giving candidates the opportunity to showcase varied, jo
 
 - [What languages we support](#what-languages-we-support)
 - [Assessment Overview](#assessment-overview)
+  - [Live coding interview preperation](#live-coding-interview-preperation)
+  - [Offline coding interview preperation](#offline-coding-interview-preperation)
   - [Building a payment gateway](#building-a-payment-gateway)
   - [Requirements](#requirements)
     - [Processing a payment](#processing-a-payment)
@@ -42,7 +44,9 @@ A variety of languages are supported for the assessment, please select the langu
 
 * [.NET](https://github.com/cko-recruitment/payment-gateway-challenge-dotnet/tree/beta)
 
-Note: please use the `beta` branch.
+*The above link intentionally links to the `beta` branch. Do not use the main branch*
+
+*Support for more languages are coming soon for the `beta` branch*
 
 If you would like to use a different language, please contact the recruiter who is responsible for managing your individual process.
 
@@ -51,14 +55,16 @@ Best of luck with any current or future assessment you undertake with Checkout.c
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Assessment Overview
-There are two variations of this challange: a live coding variation where you will pair with a Checkout Senior Engineer to solve the challange live; and a take home variation where you will complete the challange ahead of the interview, and then demonstrate and review the solution with a Checkout Senior Engineer. You should have already indicated to the Checkout talent team which variation you have chosen.
+There are two variations of this challange: 
+1. A live coding variation where you will pair with a Checkout Senior Engineer to solve the challange live
+2. A take home variation where you will complete the challange ahead of the interview, and then demonstrate and review the solution with a Checkout Senior Engineer.
+
+You should have already indicated to the Checkout talent team which variation you have chosen.
 
 In either case, please **do take a look at the details of this project** and familiarize yourself with the requirements and the documentation.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ### Live coding interview preperation
-If you have opted for the live coding variation please prepare your development environment so that you are comfortable and ready to start writing code (IDE setup, all libraries and dependencies ready)
+If you have opted for the live coding variation please prepare your development environment so that you are comfortable and ready to start writing code (IDE setup, all libraries and dependencies ready).
 
 ### Offline coding interview preperation
 If you have opted for the offline coding variation please ensure that you have shared your solution (instructions on how to do this are given to you by the Checkout talent team), and that you are ready to demo/review your solution.
@@ -165,7 +171,7 @@ You do not need to integrate with a real storage engine or database. It is fine 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Documentation
-Please document your key design considerations and assumptions made when the test is performed as a take away exercise.
+Please document your key design considerations and assumptions made when the test is performed as a offline take-home exercise.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
