@@ -2,7 +2,7 @@
 
 <br />
 <div align="center">
-  <img src="https://github.com/cko-recruitment/.github/blob/main/images/checkout_logo.gif" alt="Logo" width="500" height="300">
+  <img src="../images/checkout_logo.gif" alt="Logo" width="500" height="300">
 
   <p align="center">
     <br />
@@ -40,10 +40,9 @@ We are passionate about giving candidates the opportunity to showcase varied, jo
 
 A variety of languages are supported for the assessment, please select the language you are most comfortable with from the list below and follow the instructions to complete the assessment.
 
-* [.NET](https://github.com/cko-recruitment/payment-gateway-challenge-dotnet)
-* [Java](https://github.com/cko-recruitment/payment-gateway-challenge-java)
-* [Python](https://github.com/cko-recruitment/payment-gateway-challenge-python)
-* [Go](https://github.com/cko-recruitment/payment-gateway-challenge-go)
+* [.NET](https://github.com/cko-recruitment/payment-gateway-challenge-dotnet/tree/beta)
+
+Note: please use the `beta` branch.
 
 If you would like to use a different language, please contact the recruiter who is responsible for managing your individual process.
 
@@ -52,13 +51,17 @@ Best of luck with any current or future assessment you undertake with Checkout.c
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Assessment Overview
-During this session we'll work using the pair programming technique with you as the driver and we will be the observer or navigator. The expectation is not to finish the task, but use the time to work through solving the problem.
+There are two variations of this challange: a live coding variation where you will pair with a Checkout Senior Engineer to solve the challange live; and a take home variation where you will complete the challange ahead of the interview, and then demonstrate and review the solution with a Checkout Senior Engineer. You should have already indicated to the Checkout talent team which variation you have chosen.
 
-Ahead of the session, please **do take a look at the details of this project** and familiarize yourself with the requirements and the documentation.
+In either case, please **do take a look at the details of this project** and familiarize yourself with the requirements and the documentation.
 
-Please ensure to fully prepare your development environment for the session. Setup any IDEs and ensure that you have all libraries and dependencies installed and ready ahead of your session to avoid losing time on this during the session.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Once your environment is set up you can begin working on the challenge before the session. Please do not spend longer than 60 minutes working on this as we want to spend time working with in the session rather than reviewing what you have already done.
+### Live coding interview preperation
+If you have opted for the live coding variation please prepare your development environment so that you are comfortable and ready to start writing code (IDE setup, all libraries and dependencies ready)
+
+### Offline coding interview preperation
+If you have opted for the offline coding variation please ensure that you have shared your solution (instructions on how to do this are given to you by the Checkout talent team), and that you are ready to demo/review your solution.
 
 We look forward to working through this challenge together. 
 
