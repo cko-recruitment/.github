@@ -147,8 +147,6 @@ Responses for payments that were sent to the acquiring bank must include the fol
 |                       |                                                                                                                                                                                     |
 | Amount                | Represents the amount in the minor currency unit. For example, if the currency was USD then <ul><li>$0.01 would be supplied as 1</li><li>$10.50 would be supplied as 1050</li></ul> |
 
-Consider that the response fields don’t need to represented in your API as part of the HTTP body. Use what you feel makes the most sense to provide a good experience to the merchants calling the gateway you are implementing.
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 #### Retrieving a payment’s details
