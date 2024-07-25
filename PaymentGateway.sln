@@ -7,21 +7,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.Api", "src\P
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.Core", "src\PaymentGateway.Core\PaymentGateway.Core.csproj", "{520E7F39-0FC2-439D-A5A1-1BE357E372D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentGateway.Clients.Contract", "src\PaymentGateway.Clients.Contract\PaymentGateway.Clients.Contract.csproj", "{0843B3EB-023C-4617-B21F-CB65BE0597F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.Clients.Contract", "src\PaymentGateway.Clients.Contract\PaymentGateway.Clients.Contract.csproj", "{0843B3EB-023C-4617-B21F-CB65BE0597F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentGateway.Clients", "src\PaymentGateway.Clients\PaymentGateway.Clients.csproj", "{82058973-8EC6-4697-8260-501C36B6739F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.Clients", "src\PaymentGateway.Clients\PaymentGateway.Clients.csproj", "{82058973-8EC6-4697-8260-501C36B6739F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentGateway.Persistance.Contract", "src\PaymentGateway.Persistance.Contract\PaymentGateway.Persistance.Contract.csproj", "{148FE32E-AB02-46BD-BF40-FDAE30F228A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.Persistance.Contract", "src\PaymentGateway.Persistance.Contract\PaymentGateway.Persistance.Contract.csproj", "{148FE32E-AB02-46BD-BF40-FDAE30F228A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentGateway.Persistance", "src\PaymentGateway.Persistance\PaymentGateway.Persistance.csproj", "{6E710E59-1534-4F4B-9BC2-2574451A320C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.Persistance", "src\PaymentGateway.Persistance\PaymentGateway.Persistance.csproj", "{6E710E59-1534-4F4B-9BC2-2574451A320C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CCDFC109-516C-4594-A6C3-C673C9AD6E8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentGateway.Unit.Tests", "tests\PaymentGateway.Unit.Tests\PaymentGateway.Unit.Tests.csproj", "{566BEE7E-242C-44A9-BCBC-B34F2CEB61E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.Unit.Tests", "tests\PaymentGateway.Unit.Tests\PaymentGateway.Unit.Tests.csproj", "{566BEE7E-242C-44A9-BCBC-B34F2CEB61E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentGateway.Acceptance.Tests", "tests\PaymentGateway.Acceptance.Tests\PaymentGateway.Acceptance.Tests.csproj", "{56A64A2D-C7B7-4FD3-A65A-092163846936}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.Acceptance.Tests", "tests\PaymentGateway.Acceptance.Tests\PaymentGateway.Acceptance.Tests.csproj", "{56A64A2D-C7B7-4FD3-A65A-092163846936}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentGateway.Integration.Tests", "tests\PaymentGateway.Integration.Tests\PaymentGateway.Integration.Tests.csproj", "{F722FBF8-6933-41AF-8E81-B07A56ECD90C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.Integration.Tests", "tests\PaymentGateway.Integration.Tests\PaymentGateway.Integration.Tests.csproj", "{F722FBF8-6933-41AF-8E81-B07A56ECD90C}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{14A72A7B-E4CE-4729-852E-B799730869E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +67,10 @@ Global
 		{F722FBF8-6933-41AF-8E81-B07A56ECD90C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F722FBF8-6933-41AF-8E81-B07A56ECD90C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F722FBF8-6933-41AF-8E81-B07A56ECD90C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14A72A7B-E4CE-4729-852E-B799730869E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14A72A7B-E4CE-4729-852E-B799730869E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14A72A7B-E4CE-4729-852E-B799730869E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14A72A7B-E4CE-4729-852E-B799730869E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

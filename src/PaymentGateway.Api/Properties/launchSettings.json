@@ -8,7 +8,8 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
-      "applicationUrl": "http://localhost:5178"
+      "applicationUrl": "http://localhost:5178",
+      "Services__AcquiringBank__BaseUrl": "http://localhost:8080"
     },
     "Container (Dockerfile)": {
       "commandName": "Docker",

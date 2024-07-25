@@ -1,0 +1,8 @@
+services:
+
+  wiremock:
+    image: wiremock/wiremock:latest
+    volumes:
+      - ./docker/volumes/wiremock/mappings:/home/wiremock/mappings
+      - ./docker/volumes/wiremock/__files:/home/wiremock/__files
+    entrypoint: ["/docker-entrypoint.sh", "--port=8080", "--global-response-templating", "--disable-gzip", "--verbose"]

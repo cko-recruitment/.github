@@ -13,7 +13,6 @@ public static class PaymentResponseDataExtensions
             Currency = paymentResponseData.Currency,
             ExpiryMonth = paymentResponseData.ExpiryMonth,
             ExpiryYear = paymentResponseData.ExpiryYear,
-            Id = paymentResponseData.Id,
             LastFourCardDigits = paymentResponseData.LastFourCardDigits,
             Status = paymentResponseData.Status.ToModel()
         };

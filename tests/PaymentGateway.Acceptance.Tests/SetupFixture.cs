@@ -39,7 +39,6 @@ internal static class SetupFixture
                         Currency = p.Currency,
                         ExpiryMonth = p.ExpiryMonth,
                         ExpiryYear = p.ExpiryYear,
-                        Id = Guid.NewGuid(),
                         LastFourCardDigits = p.CardNumber[^4..],
                         Status = PaymentStatusData.Authorized
                     });
@@ -49,6 +48,9 @@ internal static class SetupFixture
             services.ReplaceScoped<IPaymentsRepository>(x =>
             {
                 var paymentsRepositoryMock = new Mock<IPaymentsRepository>();
+                paymentsRepositoryMock.Setup(x => x.SaveAsync(It.IsAny<PaymentResponseData>(), It.IsAny<CancellationToken>()))
+                    .ReturnsAsync(Guid.NewGuid());
+
                 return paymentsRepositoryMock.Object;
             });
         });

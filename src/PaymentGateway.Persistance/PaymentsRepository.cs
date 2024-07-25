@@ -5,13 +5,29 @@ namespace PaymentGateway.Persistance;
 
 public class PaymentsRepository : IPaymentsRepository
 {
-    public Task<PaymentResponseData> GetAsync(Guid paymentId, CancellationToken cancellationToken)
+    private readonly Dictionary<Guid, PaymentResponseData> paymentResponseDataItems = [];
+
+    public PaymentsRepository()
     {
-        throw new NotImplementedException();
     }
 
-    public Task SaveAsync(PaymentResponseData paymentResponseData, CancellationToken cancellationToken)
+    public PaymentsRepository(Dictionary<Guid, PaymentResponseData> paymentResponseDataItems)
     {
-        throw new NotImplementedException();
+        this.paymentResponseDataItems = paymentResponseDataItems;
+    }
+
+    public async Task<PaymentResponseData?> GetAsync(Guid paymentId, CancellationToken cancellationToken)
+    {
+        return await Task.FromResult(paymentResponseDataItems
+            .Where(x => x.Key == paymentId)
+            .Select(x => x.Value)
+            .FirstOrDefault());
+    }
+
+    public async Task<Guid> SaveAsync(PaymentResponseData paymentResponseData, CancellationToken cancellationToken)
+    {
+        var paymentId = Guid.NewGuid();
+        paymentResponseDataItems.Add(paymentId, paymentResponseData);
+        return await Task.FromResult(paymentId);
     }
 }

@@ -23,7 +23,7 @@ public class PaymentsControllerTests
     }
 
     [Test]
-    public async Task POST_Should_Return_Created_Response_When_Payment_Authorized()
+    public async Task POST_Should_Return_Created_Response_When_Payment_Response_Received_From_AcquiringBank()
     {
         //given
         var paymentRequestModel = new PaymentRequestModel()
@@ -41,7 +41,6 @@ public class PaymentsControllerTests
             Currency = Currency.USD,
             ExpiryMonth = paymentRequestModel.ExpiryMonth,
             ExpiryYear = paymentRequestModel.ExpiryYear,
-            Id = Guid.NewGuid(),
             LastFourCardDigits = paymentRequestModel.CardNumber[^4..],
             Status = PaymentStatusData.Authorized
         };
@@ -54,46 +53,6 @@ public class PaymentsControllerTests
         //then
         Assert.That(response, Is.Not.Null);
         Assert.That(response, Is.InstanceOf<CreatedAtActionResult>());
-
-        paymentsRepositoryMock.Verify(x => x.SaveAsync(paymentResponseData, It.IsAny<CancellationToken>()), Times.Once);
-    }
-
-    [Test]
-    public async Task POST_Should_Return_PaymentRequired_Response_When_Payment_Declined()
-    {
-        //given
-        var paymentRequestModel = new PaymentRequestModel()
-        {
-            Amount = 1,
-            CardNumber = "4263982640269299",
-            Currency = Currency.USD.ToString(),
-            CVV = "123",
-            ExpiryMonth = 1,
-            ExpiryYear = 2025
-        };
-        var paymentResponseData = new PaymentResponseData()
-        {
-            Amount = paymentRequestModel.Amount,
-            Currency = Currency.GBP,
-            ExpiryMonth = paymentRequestModel.ExpiryMonth,
-            ExpiryYear = paymentRequestModel.ExpiryYear,
-            Id = Guid.NewGuid(),
-            LastFourCardDigits = paymentRequestModel.CardNumber[^4..],
-            Status = PaymentStatusData.Declined
-        };
-        acquiringBankClientMock.Setup(x => x.RequestPaymentAsync(paymentRequestModel.ToData(), It.IsAny<CancellationToken>()))
-            .ReturnsAsync(paymentResponseData);
-
-        //when
-        var response = await controller.Post(paymentRequestModel, CancellationToken.None);
-
-        //then
-        Assert.That(response, Is.Not.Null);
-        Assert.Multiple(() =>
-        {
-            Assert.That(response, Is.InstanceOf<ObjectResult>());
-            Assert.That(((ObjectResult)response).StatusCode, Is.EqualTo((int)HttpStatusCode.PaymentRequired));
-        });
 
         paymentsRepositoryMock.Verify(x => x.SaveAsync(paymentResponseData, It.IsAny<CancellationToken>()), Times.Once);
     }
@@ -123,7 +82,6 @@ public class PaymentsControllerTests
             Currency = Currency.GBP,
             ExpiryMonth = 4,
             ExpiryYear = 2025,
-            Id = paymentId,
             LastFourCardDigits = "1234",
             Status = PaymentStatusData.Declined
         };

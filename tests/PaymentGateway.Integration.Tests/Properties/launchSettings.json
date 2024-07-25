@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PaymentGateway.Integration.Tests": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

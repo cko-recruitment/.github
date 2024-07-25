@@ -3,7 +3,6 @@ using PaymentGateway.Api.Code.Extensions;
 using PaymentGateway.Api.Models;
 using PaymentGateway.Clients.Contract;
 using PaymentGateway.Persistance.Contract;
-using System.Net;
 
 namespace PaymentGateway.Api.Controllers;
 
@@ -30,15 +29,10 @@ public class PaymentsController(
     public async Task<IActionResult> Post([FromBody] PaymentRequestModel paymentRequestModel, CancellationToken cancellationToken)
     {
         var paymentResponseData = await acquiringBankClient.RequestPaymentAsync(paymentRequestModel.ToData(), cancellationToken);
-        await paymentsRepository.SaveAsync(paymentResponseData, cancellationToken);
+        var paymentId = await paymentsRepository.SaveAsync(paymentResponseData, cancellationToken);
         
         var paymentModel = paymentResponseData.ToModel();
 
-        return paymentModel.Status == PaymentStatusModel.Authorized
-            ? CreatedAtAction(nameof(Get), new { paymentModel.Id }, paymentModel)
-            : new ObjectResult(paymentModel)
-            {
-                StatusCode = (int)HttpStatusCode.PaymentRequired,
-            };
+        return CreatedAtAction(nameof(Get), new { id = paymentId }, paymentModel);
     }
 }

@@ -1,0 +1,16 @@
+services:
+
+  payment-gateway-integration-tests:
+    image: "payment-gateway-integration-tests"
+    build:
+      context: .
+      dockerfile: tests/PaymentGateway.Integration.Tests/Dockerfile
+    depends_on:
+      - wiremock
+    environment:
+        Services__AcquiringBank__BaseUrl: http://wiremock:8080
+    volumes:
+      - ./docker/volumes/scripts:/app/scripts:ro
+    command: >
+      bash -c "scripts/wait-for-it.sh wiremock:8080 -t 30
+      && dotnet test PaymentGateway.Integration.Tests.dll"

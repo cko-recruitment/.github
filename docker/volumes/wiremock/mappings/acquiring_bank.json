@@ -1,0 +1,48 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "POST",
+        "urlPath": "/payments",
+        "bodyPatterns" : [ {
+              "equalToJson" : {
+                "card_number": "2222405343248877",
+                "expiry_date": "04/2025",
+                "currency": "GBP",
+                "amount": 100,
+                "cvv": "123"
+              }
+            } ]
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"authorized\": true, \"authorization_code\": \"0bb07405-6d44-4b50-a14f-7ae0beff13ad\"}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "urlPath": "/payments",
+        "bodyPatterns" : [ {
+              "equalToJson" : {
+                "card_number": "2222405343248112",
+                "expiry_date": "01/2026",
+                "currency": "USD",
+                "amount": 60000,
+                "cvv": "456"
+              }
+            } ]
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"authorized\": false, \"authorization_code\": \"\"}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    }
+  ]
+}

@@ -1,4 +1,6 @@
-﻿using PaymentGateway.Clients;
+﻿using CommunityToolkit.Diagnostics;
+using PaymentGateway.Api.Code.Extensions;
+using PaymentGateway.Clients;
 using PaymentGateway.Clients.Contract;
 using PaymentGateway.Persistance;
 using PaymentGateway.Persistance.Contract;
@@ -14,8 +16,13 @@ public static class ServiceCollectionExtensions
             .AddSwaggerGen();
     }
 
-    public static IServiceCollection AddDependencies(this IServiceCollection services)
+    public static IServiceCollection AddDependencies(this IServiceCollection services, ConfigurationManager configuration)
     {
+        var acquiringBankConfiguration = configuration.GetSection("Services:AcquiringBank").Bind<AcquiringBankConfiguration>();
+        Guard.IsNotNull(acquiringBankConfiguration?.BaseUrl);
+
+        services.AddHttpClient<AcquiringBankClient>(c => c.BaseAddress = new Uri(acquiringBankConfiguration.BaseUrl));
+
         return services
             .AddSingleton(TimeProvider.System)
             .AddScoped<IAcquiringBankClient, AcquiringBankClient>()

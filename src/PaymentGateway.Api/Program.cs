@@ -1,4 +1,5 @@
 using PaymentGateway.Api.Code.Configuration;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace PaymentGateway.Api;
@@ -16,10 +17,12 @@ public class Program
             {
                 options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
                 options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+                options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower;
+                options.JsonSerializerOptions.WriteIndented = true;
             });
         builder.Services
             .AddSwagger()
-            .AddDependencies();
+            .AddDependencies(builder.Configuration);
 
         var app = builder.Build();
 

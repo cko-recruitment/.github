@@ -27,7 +27,7 @@ public partial class PaymentsControllerTests
             ExpiryYear = validExpiryYear
         };
         using var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, relativeUrl);
-        httpRequestMessage.Content = JsonContent.Create(paymentRequestModel);
+        httpRequestMessage.Content = JsonContent.Create(paymentRequestModel, null, jsonSerializerOptions);
 
         //when
         using var response = await httpClient.SendAsync(httpRequestMessage);
@@ -54,7 +54,7 @@ public partial class PaymentsControllerTests
             ExpiryYear = validExpiryYear
         };
         using var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, relativeUrl);
-        httpRequestMessage.Content = JsonContent.Create(paymentRequestModel);
+        httpRequestMessage.Content = JsonContent.Create(paymentRequestModel, null, jsonSerializerOptions);
 
         //when
         using var response = await httpClient.SendAsync(httpRequestMessage);
@@ -80,7 +80,7 @@ public partial class PaymentsControllerTests
             ExpiryYear = validExpiryYear
         };
         using var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, relativeUrl);
-        httpRequestMessage.Content = JsonContent.Create(paymentRequestModel);
+        httpRequestMessage.Content = JsonContent.Create(paymentRequestModel, null, jsonSerializerOptions);
 
         //when
         using var response = await httpClient.SendAsync(httpRequestMessage);
@@ -106,7 +106,7 @@ public partial class PaymentsControllerTests
             ExpiryYear = validExpiryYear
         };
         using var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, relativeUrl);
-        httpRequestMessage.Content = JsonContent.Create(paymentRequestModel);
+        httpRequestMessage.Content = JsonContent.Create(paymentRequestModel, null, jsonSerializerOptions);
 
         //when
         using var response = await httpClient.SendAsync(httpRequestMessage);
@@ -132,7 +132,7 @@ public partial class PaymentsControllerTests
             ExpiryYear = validExpiryYear
         };
         using var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, relativeUrl);
-        httpRequestMessage.Content = JsonContent.Create(paymentRequestModel);
+        httpRequestMessage.Content = JsonContent.Create(paymentRequestModel, null, jsonSerializerOptions);
 
         //when
         using var response = await httpClient.SendAsync(httpRequestMessage);
@@ -158,7 +158,7 @@ public partial class PaymentsControllerTests
             ExpiryYear = expiryYear
         };
         using var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, relativeUrl);
-        httpRequestMessage.Content = JsonContent.Create(paymentRequestModel);
+        httpRequestMessage.Content = JsonContent.Create(paymentRequestModel, null, jsonSerializerOptions);
 
         //when
         using var response = await httpClient.SendAsync(httpRequestMessage);
@@ -183,7 +183,7 @@ public partial class PaymentsControllerTests
             ExpiryYear = expiryYear
         };
         using var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, relativeUrl);
-        httpRequestMessage.Content = JsonContent.Create(paymentRequestModel);
+        httpRequestMessage.Content = JsonContent.Create(paymentRequestModel, null, jsonSerializerOptions);
 
         //when
         using var response = await httpClient.SendAsync(httpRequestMessage);
@@ -194,7 +194,7 @@ public partial class PaymentsControllerTests
     }
 
     [Test]
-    public async Task POST_Should_Return_PaymentRequired_When_AcquiringBank_Declines_Payment()
+    public async Task POST_Should_Return_Created_When_AcquiringBank_Response_Received()
     {
         //given
         var paymentRequestModel = new
@@ -207,7 +207,7 @@ public partial class PaymentsControllerTests
             ExpiryYear = validExpiryYear
         };
         using var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, relativeUrl);
-        httpRequestMessage.Content = JsonContent.Create(paymentRequestModel);
+        httpRequestMessage.Content = JsonContent.Create(paymentRequestModel, null, jsonSerializerOptions);
 
         //when
         using var response = await httpClient.SendAsync(httpRequestMessage);
@@ -220,7 +220,6 @@ public partial class PaymentsControllerTests
         var responseModel = JsonSerializer.Deserialize<PaymentModel>(responseContent, jsonSerializerOptions);
 
         Assert.That(responseModel, Is.Not.Null);
-        Assert.That(responseModel.Id, Is.Not.EqualTo(Guid.Empty));
         Assert.That(responseModel.Currency.ToString(), Is.EqualTo(paymentRequestModel.Currency));
         Assert.That(responseModel.Amount, Is.EqualTo(paymentRequestModel.Amount));
         Assert.That(responseModel.Status, Is.EqualTo(PaymentStatusModel.Authorized));
