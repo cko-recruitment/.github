@@ -8,13 +8,7 @@ namespace PaymentGateway.Acceptance.Tests;
 public partial class PaymentsControllerTests
 {
     private const string relativeUrl = "api/payments";
-    private static JsonSerializerOptions jsonSerializerOptions = new()
-    {
-        PropertyNameCaseInsensitive = true,
-        PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
-        WriteIndented = true,
-        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-    };
+    private readonly JsonSerializerOptions jsonSerializerOptions;
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Structure", "NUnit1032:An IDisposable field/property should be Disposed in a TearDown method", Justification = "Singleton http client")]
     private readonly HttpClient httpClient;
@@ -22,6 +16,6 @@ public partial class PaymentsControllerTests
     public PaymentsControllerTests()
     {
         httpClient = SetupFixture.TestServiceProvider.GetRequiredService<HttpClient>();
-        jsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+        jsonSerializerOptions = SetupFixture.TestServiceProvider.GetRequiredService<JsonSerializerOptions>();
     }
 }

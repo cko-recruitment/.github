@@ -1,10 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using PaymentGateway.Clients;
 using System.Text.Json.Serialization;
 using System.Text.Json;
 
-namespace PaymentGateway.Integration.Tests;
+namespace PaymentGateway.EndToEnd.Tests;
 
 internal static class SetupFixture
 {
@@ -19,13 +18,11 @@ internal static class SetupFixture
     {
         var services = new ServiceCollection();
         var configuration = new ConfigurationBuilder()
-            .AddJsonFile("appsettings.integration.json", true)
+            .AddJsonFile("appsettings.e2e.json", true)
             .AddEnvironmentVariables()
             .Build();
-        var baseUrl = configuration.GetSection("Services:AcquiringBank:BaseUrl").Value;
 
         services
-            .AddTransient<AcquiringBankClient>()
             .AddSingleton(x =>
             {
                 var jsonSerializerOptions = new JsonSerializerOptions()
@@ -39,7 +36,7 @@ internal static class SetupFixture
 
                 return jsonSerializerOptions;
             })
-            .AddHttpClient<AcquiringBankClient>(c => c.BaseAddress = new Uri(baseUrl!));
+            .AddHttpClient(String.Empty, c => c.BaseAddress = new Uri(configuration.GetSection("Services:Api:BaseUrl").Value!));
 
         return services.BuildServiceProvider();
     }

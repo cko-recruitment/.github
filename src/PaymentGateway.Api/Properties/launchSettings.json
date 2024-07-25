@@ -5,18 +5,19 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "Services__AcquiringBank__BaseUrl": "http://localhost:8080"
       },
       "dotnetRunMessages": true,
-      "applicationUrl": "http://localhost:5178",
-      "Services__AcquiringBank__BaseUrl": "http://localhost:8080"
+      "applicationUrl": "http://localhost:5178"
     },
     "Container (Dockerfile)": {
       "commandName": "Docker",
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
       "environmentVariables": {
-        "ASPNETCORE_HTTP_PORTS": "8080"
+        "ASPNETCORE_HTTP_PORTS": "8080",
+        "Services__AcquiringBank__BaseUrl": "http://localhost:8080"
       },
       "publishAllPorts": true
     }

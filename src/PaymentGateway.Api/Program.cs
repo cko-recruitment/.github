@@ -1,4 +1,7 @@
+using Microsoft.OpenApi.Writers;
 using PaymentGateway.Api.Code.Configuration;
+using PaymentGateway.Clients;
+using PaymentGateway.Clients.Contract;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -12,6 +15,8 @@ public class Program
 
         // Add services to the container.
         builder.Services
+            .AddSwagger()
+            .AddDependencies(builder.Configuration)
             .AddControllers()
             .AddJsonOptions(options =>
             {
@@ -20,9 +25,6 @@ public class Program
                 options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower;
                 options.JsonSerializerOptions.WriteIndented = true;
             });
-        builder.Services
-            .AddSwagger()
-            .AddDependencies(builder.Configuration);
 
         var app = builder.Build();
 

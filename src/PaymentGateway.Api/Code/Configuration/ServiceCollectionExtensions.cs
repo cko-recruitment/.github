@@ -4,6 +4,8 @@ using PaymentGateway.Clients;
 using PaymentGateway.Clients.Contract;
 using PaymentGateway.Persistance;
 using PaymentGateway.Persistance.Contract;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace PaymentGateway.Api.Code.Configuration;
 
@@ -21,11 +23,27 @@ public static class ServiceCollectionExtensions
         var acquiringBankConfiguration = configuration.GetSection("Services:AcquiringBank").Bind<AcquiringBankConfiguration>();
         Guard.IsNotNull(acquiringBankConfiguration?.BaseUrl);
 
-        services.AddHttpClient<AcquiringBankClient>(c => c.BaseAddress = new Uri(acquiringBankConfiguration.BaseUrl));
+        services.AddHttpClient(String.Empty, c =>
+        {
+            c.BaseAddress = new Uri(acquiringBankConfiguration.BaseUrl);
+        });
 
         return services
+            .AddSingleton(x =>
+            {
+                var jsonSerializerOptions = new JsonSerializerOptions()
+                {
+                    PropertyNameCaseInsensitive = true,
+                    PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
+                    WriteIndented = true,
+                    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+                };
+                jsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+
+                return jsonSerializerOptions;
+            })
             .AddSingleton(TimeProvider.System)
-            .AddScoped<IAcquiringBankClient, AcquiringBankClient>()
-            .AddScoped<IPaymentsRepository, PaymentsRepository>();
+            .AddSingleton<IPaymentsRepository, PaymentsRepository>()
+            .AddScoped<IAcquiringBankClient, AcquiringBankClient>();
     }
 }

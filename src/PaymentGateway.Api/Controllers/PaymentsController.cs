@@ -3,6 +3,7 @@ using PaymentGateway.Api.Code.Extensions;
 using PaymentGateway.Api.Models;
 using PaymentGateway.Clients.Contract;
 using PaymentGateway.Persistance.Contract;
+using System.Net;
 
 namespace PaymentGateway.Api.Controllers;
 
@@ -16,6 +17,8 @@ public class PaymentsController(
     private readonly IPaymentsRepository paymentsRepository = paymentsRepository ?? throw new ArgumentNullException(nameof(paymentsRepository));
 
     [HttpGet("{id}")]
+    [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(PaymentModel))]
+    [ProducesResponseType((int)HttpStatusCode.NotFound)]
     public async Task<IActionResult> Get(Guid id, CancellationToken cancellationToken)
     {
         var paymentResponseData = await paymentsRepository.GetAsync(id, cancellationToken);
@@ -26,6 +29,7 @@ public class PaymentsController(
     }
 
     [HttpPost]
+    [ProducesResponseType((int)HttpStatusCode.Created, Type = typeof(PaymentModel))]
     public async Task<IActionResult> Post([FromBody] PaymentRequestModel paymentRequestModel, CancellationToken cancellationToken)
     {
         var paymentResponseData = await acquiringBankClient.RequestPaymentAsync(paymentRequestModel.ToData(), cancellationToken);

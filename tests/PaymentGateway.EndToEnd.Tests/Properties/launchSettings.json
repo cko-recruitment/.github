@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PaymentGateway.EndToEnd.Tests": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

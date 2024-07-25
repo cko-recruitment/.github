@@ -8,6 +8,8 @@ using PaymentGateway.Acceptance.Tests.Code.Configuration;
 using PaymentGateway.Api;
 using PaymentGateway.Clients.Contract;
 using PaymentGateway.Persistance.Contract;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace PaymentGateway.Acceptance.Tests;
 
@@ -62,11 +64,26 @@ internal static class SetupFixture
     {
         var services = new ServiceCollection();
 
-        services.AddSingleton(webApplicationFactory.CreateClient(
+        services
+            .AddSingleton(webApplicationFactory.CreateClient(
             new WebApplicationFactoryClientOptions()
             {
                 AllowAutoRedirect = false
-            }));
+            }))
+            .AddSingleton(x =>
+             {
+                 var jsonSerializerOptions = new JsonSerializerOptions()
+                 {
+                     PropertyNameCaseInsensitive = true,
+                     PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
+                     WriteIndented = true,
+                     DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+                 };
+                 jsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+
+                 return jsonSerializerOptions;
+             });
+
         return services.BuildServiceProvider();
     }
 }

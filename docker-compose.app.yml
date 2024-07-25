@@ -1,0 +1,17 @@
+services:
+
+  payment-gateway-api:
+    image: "payment-gateway-api"
+    build:
+      context: .
+      dockerfile: src/PaymentGateway.Api/Dockerfile
+    depends_on:
+      - wiremock
+    environment:
+        ASPNETCORE_URLS: http://+:8081
+        Services__AcquiringBank__BaseUrl: http://wiremock:8080
+    volumes:
+      - ./docker/volumes/scripts:/app/scripts:ro
+    command: >
+      bash -c "scripts/wait-for-it.sh wiremock:8080 -t 30
+      && dotnet PaymentGateway.Api.dll"

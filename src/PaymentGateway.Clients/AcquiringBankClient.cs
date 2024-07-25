@@ -1,7 +1,6 @@
 ﻿using PaymentGateway.Clients.Contract;
 using PaymentGateway.Clients.Extensions;
 using System.Net.Http.Json;
-using System.Text.Json.Serialization;
 using System.Text.Json;
 
 namespace PaymentGateway.Clients;
@@ -10,17 +9,11 @@ public class AcquiringBankClient : IAcquiringBankClient
 {
     private const string paymentsRelativeUrl = "/payments";
     private readonly HttpClient httpClient;
-    private static JsonSerializerOptions jsonSerializerOptions = new()
-    {
-        PropertyNameCaseInsensitive = true,
-        PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
-        WriteIndented = true,
-        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-    };
+    private readonly JsonSerializerOptions jsonSerializerOptions;
 
-    public AcquiringBankClient(HttpClient httpClient)
+    public AcquiringBankClient(HttpClient httpClient, JsonSerializerOptions jsonSerializerOptions)
     {
-        jsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+        this.jsonSerializerOptions = jsonSerializerOptions ?? throw new ArgumentNullException(nameof(jsonSerializerOptions));
         this.httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
     }
 
