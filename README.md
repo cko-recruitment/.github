@@ -42,12 +42,9 @@ We are passionate about giving candidates the opportunity to showcase varied, jo
 
 A variety of languages are supported for the assessment, please select the language you are most comfortable with from the list below and follow the instructions to complete the assessment.
 
-* [.NET](https://github.com/cko-recruitment/payment-gateway-challenge-dotnet/tree/beta)
-* [Go](https://github.com/cko-recruitment/payment-gateway-challenge-go/tree/beta)
-
-*The above links intentionally link to the `beta` branch. Do not use the main branch*
-
-*Support for more languages are coming soon for the `beta` branch*
+* [.NET](https://github.com/cko-recruitment/payment-gateway-challenge-dotnet)
+* [Go](https://github.com/cko-recruitment/payment-gateway-challenge-go)
+* [Java](https://github.com/cko-recruitment/payment-gateway-challenge-java)
 
 If you would like to use a different language, please contact the recruiter who is responsible for managing your individual process.
 
