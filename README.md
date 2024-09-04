@@ -68,6 +68,8 @@ If you have opted for the live coding variation please prepare your development 
 ### Offline coding interview preperation
 If you have opted for the offline coding variation please ensure that you have shared your solution (instructions on how to do this are given to you by the Checkout talent team), and that you are ready to demo/review your solution.
 
+Please do not create pull requests against our cko-recruitment repositories.
+
 We look forward to working through this challenge together. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
