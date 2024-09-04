@@ -165,7 +165,7 @@ The second requirement for the payment gateway is to allow a merchant to retriev
 
 **Note: Payment Storage**
 
-You do not need to integrate with a real storage engine or database. It is fine to use a test double to represent this.
+You do not need to integrate with a real storage engine or database. It is fine to use the test double repository provided in the sample code to represent this.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
