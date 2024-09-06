@@ -25,6 +25,7 @@ We are passionate about giving candidates the opportunity to showcase varied, jo
 - [Assessment Overview](#assessment-overview)
   - [Live coding interview preperation](#live-coding-interview-preperation)
   - [Offline coding interview preperation](#offline-coding-interview-preperation)
+- [Assessment](#assessment)  
   - [Building a payment gateway](#building-a-payment-gateway)
   - [Requirements](#requirements)
     - [Processing a payment](#processing-a-payment)
@@ -42,11 +43,10 @@ We are passionate about giving candidates the opportunity to showcase varied, jo
 
 A variety of languages are supported for the assessment, please select the language you are most comfortable with from the list below and follow the instructions to complete the assessment.
 
-* [.NET](https://github.com/cko-recruitment/payment-gateway-challenge-dotnet/tree/beta)
-
-*The above link intentionally links to the `beta` branch. Do not use the main branch*
-
-*Support for more languages are coming soon for the `beta` branch*
+* [.NET](https://github.com/cko-recruitment/payment-gateway-challenge-dotnet)
+* [Go](https://github.com/cko-recruitment/payment-gateway-challenge-go)
+* [Java](https://github.com/cko-recruitment/payment-gateway-challenge-java)
+* [Python](https://github.com/cko-recruitment/payment-gateway-challenge-python)
 
 If you would like to use a different language, please contact the recruiter who is responsible for managing your individual process.
 
@@ -69,10 +69,13 @@ If you have opted for the live coding variation please prepare your development 
 ### Offline coding interview preperation
 If you have opted for the offline coding variation please ensure that you have shared your solution (instructions on how to do this are given to you by the Checkout talent team), and that you are ready to demo/review your solution.
 
+Please do not create pull requests against our cko-recruitment repositories.
+
 We look forward to working through this challenge together. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Assessment
 ### Building a payment gateway
 E-Commerce is experiencing exponential growth and merchants who sell their goods or services online need a way to easily collect money from their customers.
 
@@ -133,7 +136,7 @@ The payment gateway will need to provide merchants with a way to process a card 
 |              | Must be 3-4 characters long          |                                                                                                                                                                                     |
 |              | Must only contain numeric characters |                                                                                                                                                                                     |
 
-Responses for payments that were sent to the acquiring bank must include the following fields:
+Responses for payments that were sucessfully sent to the acquiring bank must include the following fields:
 
 | Field                 | Notes                                                                                                                                                                               |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -146,9 +149,8 @@ Responses for payments that were sent to the acquiring bank must include the fol
 |                       |                                                                                                                                                                                     |
 | Amount                | Represents the amount in the minor currency unit. For example, if the currency was USD then <ul><li>$0.01 would be supplied as 1</li><li>$10.50 would be supplied as 1050</li></ul> |
 
-Consider that the response fields don’t need to represented in your API as part of the HTTP body. Use what you feel makes the most sense to provide a good experience to the merchants calling the gateway you are implementing.
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 #### Retrieving a payment’s details
 The second requirement for the payment gateway is to allow a merchant to retrieve details of a previously made payment using its identifier. Doing this will help the merchant with their reconciliation and reporting needs. The response should include a masked card number and card details along with a status code which indicates the result of the payment.
@@ -166,7 +168,7 @@ The second requirement for the payment gateway is to allow a merchant to retriev
 
 **Note: Payment Storage**
 
-You do not need to integrate with a real storage engine or database. It is fine to use a test double to represent this.
+You do not need to integrate with a real storage engine or database. It is fine to use the test double repository provided in the sample code to represent this.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
