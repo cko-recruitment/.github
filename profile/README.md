@@ -23,8 +23,8 @@ We are passionate about giving candidates the opportunity to showcase varied, jo
 
 - [What languages we support](#what-languages-we-support)
 - [Assessment Overview](#assessment-overview)
-  - [Live coding interview preperation](#live-coding-interview-preperation)
-  - [Offline coding interview preperation](#offline-coding-interview-preperation)
+  - [Live coding interview preparation](#live-coding-interview-preparation)
+  - [Offline coding interview praparation](#offline-coding-interview-preparation)
 - [Assessment](#assessment)  
   - [Building a payment gateway](#building-a-payment-gateway)
   - [Requirements](#requirements)
@@ -55,18 +55,18 @@ Best of luck with any current or future assessment you undertake with Checkout.c
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Assessment Overview
-There are two variations of this challange: 
-1. A live coding variation where you will pair with a Checkout Senior Engineer to solve the challange live
-2. A take home variation where you will complete the challange ahead of the interview, and then demonstrate and review the solution with a Checkout Senior Engineer.
+There are two variations of this challenge: 
+1. A live coding variation where you will pair with a Checkout Senior Engineer to solve the challenge live
+2. A take home variation where you will complete the challenge ahead of the interview, and then demonstrate and review the solution with a Checkout Senior Engineer.
 
 You should have already indicated to the Checkout talent team which variation you have chosen.
 
 In either case, please **do take a look at the details of this project** and familiarize yourself with the requirements and the documentation.
 
-### Live coding interview preperation
+### Live coding interview preparation
 If you have opted for the live coding variation please prepare your development environment so that you are comfortable and ready to start writing code (IDE setup, all libraries and dependencies ready).
 
-### Offline coding interview preperation
+### Offline coding interview preparation
 If you have opted for the offline coding variation please ensure that you have shared your solution (instructions on how to do this are given to you by the Checkout talent team), and that you are ready to demo/review your solution.
 
 Please do not create pull requests against our cko-recruitment repositories.
@@ -173,7 +173,7 @@ You do not need to integrate with a real storage engine or database. It is fine 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Documentation
-Please document your key design considerations and assumptions made when the test is performed as a offline take-home exercise.
+Please document your key design considerations and assumptions made when the test is performed as an offline take-home exercise.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -244,7 +244,7 @@ The configuration is stored in the `imposters` directory of this repo as an [ejs
 engineers would not use an EJS template, however for this test it works well. The preferred way to use Mountebank or
 similar products (e.g. WireMock) is to call it's API during your test setup via a client library. This ensures you
 have full control of how the server responds and it ensures your remote test doubles do not become overly complex
-trying to handle lots of different scenarios. Rather the mock is programmed based of what a specific test requires."# payment-gateway-challenge-dotnet" 
+trying to handle lots of different scenarios. Rather the mock is programmed based on what a specific test requires."# payment-gateway-challenge-dotnet" 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
