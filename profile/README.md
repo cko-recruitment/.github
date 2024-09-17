@@ -23,6 +23,9 @@ We are passionate about giving candidates the opportunity to showcase varied, jo
 
 - [What languages we support](#what-languages-we-support)
 - [Assessment Overview](#assessment-overview)
+  - [Live coding interview preparation](#live-coding-interview-preparation)
+  - [Offline coding interview praparation](#offline-coding-interview-preparation)
+- [Assessment](#assessment)  
   - [Building a payment gateway](#building-a-payment-gateway)
   - [Requirements](#requirements)
     - [Processing a payment](#processing-a-payment)
@@ -41,9 +44,9 @@ We are passionate about giving candidates the opportunity to showcase varied, jo
 A variety of languages are supported for the assessment, please select the language you are most comfortable with from the list below and follow the instructions to complete the assessment.
 
 * [.NET](https://github.com/cko-recruitment/payment-gateway-challenge-dotnet)
+* [Go](https://github.com/cko-recruitment/payment-gateway-challenge-go)
 * [Java](https://github.com/cko-recruitment/payment-gateway-challenge-java)
 * [Python](https://github.com/cko-recruitment/payment-gateway-challenge-python)
-* [Go](https://github.com/cko-recruitment/payment-gateway-challenge-go)
 
 If you would like to use a different language, please contact the recruiter who is responsible for managing your individual process.
 
@@ -52,18 +55,27 @@ Best of luck with any current or future assessment you undertake with Checkout.c
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Assessment Overview
-During this session we'll work using the pair programming technique with you as the driver and we will be the observer or navigator. The expectation is not to finish the task, but use the time to work through solving the problem.
+There are two variations of this challenge: 
+1. A live coding variation where you will pair with a Checkout Senior Engineer to solve the challenge live
+2. A take home variation where you will complete the challenge ahead of the interview, and then demonstrate and review the solution with a Checkout Senior Engineer.
 
-Ahead of the session, please **do take a look at the details of this project** and familiarize yourself with the requirements and the documentation.
+You should have already indicated to the Checkout talent team which variation you have chosen.
 
-Please ensure to fully prepare your development environment for the session. Setup any IDEs and ensure that you have all libraries and dependencies installed and ready ahead of your session to avoid losing time on this during the session.
+In either case, please **do take a look at the details of this project** and familiarize yourself with the requirements and the documentation.
 
-Once your environment is set up you can begin working on the challenge before the session. Please do not spend longer than 60 minutes working on this as we want to spend time working with in the session rather than reviewing what you have already done.
+### Live coding interview preparation
+If you have opted for the live coding variation please prepare your development environment so that you are comfortable and ready to start writing code (IDE setup, all libraries and dependencies ready).
+
+### Offline coding interview preparation
+If you have opted for the offline coding variation please ensure that you have shared your solution (instructions on how to do this are given to you by the Checkout talent team), and that you are ready to demo/review your solution.
+
+Please do not create pull requests against our cko-recruitment repositories.
 
 We look forward to working through this challenge together. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Assessment
 ### Building a payment gateway
 E-Commerce is experiencing exponential growth and merchants who sell their goods or services online need a way to easily collect money from their customers.
 
@@ -124,7 +136,7 @@ The payment gateway will need to provide merchants with a way to process a card 
 |              | Must be 3-4 characters long          |                                                                                                                                                                                     |
 |              | Must only contain numeric characters |                                                                                                                                                                                     |
 
-Responses for payments that were sent to the acquiring bank must include the following fields:
+Responses for payments that were sucessfully sent to the acquiring bank must include the following fields:
 
 | Field                 | Notes                                                                                                                                                                               |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -137,9 +149,8 @@ Responses for payments that were sent to the acquiring bank must include the fol
 |                       |                                                                                                                                                                                     |
 | Amount                | Represents the amount in the minor currency unit. For example, if the currency was USD then <ul><li>$0.01 would be supplied as 1</li><li>$10.50 would be supplied as 1050</li></ul> |
 
-Consider that the response fields don’t need to represented in your API as part of the HTTP body. Use what you feel makes the most sense to provide a good experience to the merchants calling the gateway you are implementing.
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 #### Retrieving a payment’s details
 The second requirement for the payment gateway is to allow a merchant to retrieve details of a previously made payment using its identifier. Doing this will help the merchant with their reconciliation and reporting needs. The response should include a masked card number and card details along with a status code which indicates the result of the payment.
@@ -157,12 +168,12 @@ The second requirement for the payment gateway is to allow a merchant to retriev
 
 **Note: Payment Storage**
 
-You do not need to integrate with a real storage engine or database. It is fine to use a test double to represent this.
+You do not need to integrate with a real storage engine or database. It is fine to use the test double repository provided in the sample code to represent this.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Documentation
-Please document your key design considerations and assumptions made when the test is performed as a take away exercise.
+Please document your key design considerations and assumptions made when the test is performed as an offline take-home exercise.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -233,7 +244,7 @@ The configuration is stored in the `imposters` directory of this repo as an [ejs
 engineers would not use an EJS template, however for this test it works well. The preferred way to use Mountebank or
 similar products (e.g. WireMock) is to call it's API during your test setup via a client library. This ensures you
 have full control of how the server responds and it ensures your remote test doubles do not become overly complex
-trying to handle lots of different scenarios. Rather the mock is programmed based of what a specific test requires."# payment-gateway-challenge-dotnet" 
+trying to handle lots of different scenarios. Rather the mock is programmed based on what a specific test requires."# payment-gateway-challenge-dotnet" 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
