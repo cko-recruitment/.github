@@ -187,8 +187,13 @@ We expect the following with each submission:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Bank simulator
-A bank simulator is provided. The simulator provides responses based on a set of known test cards,
-each of which return a specific response so that successful authorizations and declines can be tested.
+A bank simulator is provided. The simulator provides responses based on the request:
+
+- If any of the required fields is missing from the request the simulator returns a `400 Bad Request` status code with an error message.
+- If all fields are present, then the response will be dependent on the provided card number:
+  - If the card number ends on an odd number (1, 3, 5, 7, 9) then the simulator returns an `200 Ok` authorized response with a new random `authorization_code`
+  - If the card number ends on an even number (2, 4, 6, 8) then the simulator returns an `200 Ok` unauthorized response
+  - If the card number ends on a zero (0) then the simulator returns an error in the form of a `503 Service Unavailable` response
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -219,21 +224,13 @@ A response will be provided with the following structure:
 
 ```json
 {
-  "authorized": false,
+  "authorized": true,
   "authorization_code": "0bb07405-6d44-4b50-a14f-7ae0beff13ad"
 }
 ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-#### Test cards
-The simulator supports the following card details. If these are not provided a HTTP 400 response will be returned
 
-| Card number      | Expiry date | Currency | Amount | CVV | Authorized  | Authorization code                   |
-|------------------|-------------|----------|--------|-----|-------------|--------------------------------------|
-| 2222405343248877 | 04/2025     | GBP      | 100    | 123 | true        | 0bb07405-6d44-4b50-a14f-7ae0beff13ad |
-| 2222405343248112 | 01/2026     | USD      | 60000  | 456 | false       | < empty >                            |
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 #### Implementation detail
 *This section isn't required reading. It is just additional context on how the simulator is implemented*
@@ -242,9 +239,7 @@ The simulator is implemented using [Mountebank](http://www.mbtest.org/) which pr
 
 The configuration is stored in the `imposters` directory of this repo as an [ejs template](https://ejs.co/). Typically
 engineers would not use an EJS template, however for this test it works well. The preferred way to use Mountebank or
-similar products (e.g. WireMock) is to call it's API during your test setup via a client library. This ensures you
-have full control of how the server responds and it ensures your remote test doubles do not become overly complex
-trying to handle lots of different scenarios. Rather the mock is programmed based on what a specific test requires."# payment-gateway-challenge-dotnet" 
+similar products (e.g. WireMock) is to call it's API during your test setup via a client library.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
