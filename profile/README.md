@@ -235,7 +235,7 @@ A response will be provided with the following structure:
 #### Implementation detail
 *This section isn't required reading. It is just additional context on how the simulator is implemented*
 
-The simulator is implemented using [Mountebank](http://www.mbtest.org/) which provides a programmable test double.
+The simulator is implemented using [Mountebank](https://github.com/mountebank-testing/mountebank) which provides a programmable test double.
 
 The configuration is stored in the `imposters` directory of this repo as an [ejs template](https://ejs.co/). Typically
 engineers would not use an EJS template, however for this test it works well. The preferred way to use Mountebank or
